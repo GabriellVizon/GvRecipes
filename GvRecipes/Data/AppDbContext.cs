@@ -22,6 +22,8 @@ namespace GvRecipes.Data;
     {
         base.OnModelCreating(builder);
 
+        AppDbSeed appDbSeed = new (builder);
+
         // Definindo chave primaria composta para a tabela de relacionamento entre Receita e Ingrediente
         builder.Entity<ReceitaIngrediente>()
             .HasKey(ri => new { ri.ReceitaId, ri.IngredienteId });
