@@ -447,7 +447,7 @@ public class AppDbSeed
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 15,
-                Quantidade = "2 unidades (peito de frango em filé)"
+                Quantidade = "2 unidades "
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
