@@ -254,8 +254,62 @@ public class AppDbSeed
             },
              new Ingrediente() {
                 Id = 26,
-                Nome = "Orégano"
+                Nome = ""
              },
+             new Ingrediente() {
+                Id = 27,
+                Nome = "Chocolate Amargo"
+             },
+            new Ingrediente() {
+                Id = 28,
+                 Nome = "manteiga"
+            },
+            new Ingrediente()
+            {
+                Id = 29,
+                Nome = "açucar mascavo"
+            },
+            new Ingrediente()
+            {
+                Id = 30,
+                Nome = "açucar refinado"
+            },
+            new Ingrediente()
+            {
+                Id = 31,
+                Nome = "fermento em pó"
+            },
+            new Ingrediente()
+            {
+                Id = 32,
+                Nome = "bicarbonato de sódio"
+            },
+            new Ingrediente()
+            {
+                Id = 33,
+                Nome = "creme de leite"
+            },
+            new Ingrediente()
+            {
+                Id = 34,
+                Nome = "macarrão"
+            },
+            new Ingrediente()
+            {
+                Id = 35,
+                Nome = "Água"
+            },
+            new Ingrediente()
+            {
+                Id = 36,
+                Nome = "Leite Quente"
+            },
+            new Ingrediente()
+            {
+                Id = 37,
+                Nome = "Bacon"
+            },
+
         };
         builder.Entity<Ingrediente>().HasData(ingredientes);
         #endregion
@@ -282,6 +336,28 @@ public class AppDbSeed
                 Rendimento = 2,
                 TempoPreparo = "45 minutos",
                 Foto = "/img/receitas/2.jpg",
+                UsuarioId = usuarios[0].Id,
+            },
+            new Receita() {
+                Id = 3,
+                Nome = "Sanduíche de brownie",
+                Descricao = "brownie recheado com ganache de chocolate amargo, A sugestão é você servir o sanduíche de brownie no almoço de Páscoa, em um encontro romântico ou outra ocasião que desejar.",
+                CategoriaId = 5,
+                Dificuldade = Dificuldade.Fácil,
+                Rendimento = 4,
+                TempoPreparo = "40 minutos",
+                Foto = "/img/receitas/3.jpg",
+                UsuarioId = usuarios[0].Id,
+            },
+            new Receita() {
+                Id = 4,
+                Nome = "Macarrão ao Molho Branco",
+                Descricao = "Macarrão com molho branco à base de farinha de trigo, com bacon e muçarela ralada.",
+                CategoriaId = 1,
+                Dificuldade = Dificuldade.Fácil,
+                Rendimento = 2,
+                TempoPreparo = "20 minutos",
+                Foto = "/img/receitas/4.jpg",
                 UsuarioId = usuarios[0].Id,
             }
         };
@@ -370,7 +446,93 @@ public class AppDbSeed
                 Id = 13,
                 ReceitaId = 2,
                 Texto = "Sirva quente, acompanhado de arroz branco ou salada."
-            }
+            },
+            // RECEITA 3 -----------------------------------------------------------------------------------
+            new()
+            {
+                Id = 14,
+                ReceitaId = 3,
+                Texto = "Derreta o chocolate amargo e a manteiga em banho-maria ou no micro-ondas, mexendo até obter uma mistura homogênea."
+            },
+            new()
+            {
+                Id = 15,
+                ReceitaId = 3,
+                Texto = "Adicione os açúcares à mistura de chocolate derretido e mexa bem para incorporar."
+            },
+            new()
+            {
+                Id = 16,
+                ReceitaId = 3,
+                Texto = "Adicione os ovos um a um, mexendo bem após cada adição para garantir que fiquem bem incorporados à massa."
+            },
+            new()
+            {
+                Id = 17,
+                ReceitaId = 3,
+                Texto = "Peneire a farinha de trigo, o fermento em pó e o bicarbonato de sódio sobre a mistura de chocolate e ovos. Misture delicadamente até obter uma massa homogênea."
+            },
+            new()
+            {
+                Id = 18,
+                ReceitaId = 3,
+                Texto = "Despeje a massa em uma forma retangular forrada com papel manteiga e leve ao forno pré-aquecido a 180°C por cerca de 20-25 minutos, ou até que um palito inserido no centro saia com algumas migalhas úmidas."
+            },
+            new()
+            {
+                Id = 19,
+                ReceitaId = 3,
+                Texto = "Deixe o brownie esfriar completamente na forma antes de cortá-lo em quadrados para montar os sanduíches."
+            },
+            new()
+            {
+                Id = 20,
+                ReceitaId = 3,
+                Texto = "Para a ganache, aqueça o creme de leite em uma panela até começar a ferver. Despeje o creme quente sobre o chocolate amargo picado e mexa até obter uma mistura lisa e brilhante."
+            },
+            new()
+            {
+                Id = 21,
+                ReceitaId = 3,
+                Texto = "Espalhe uma camada generosa de ganache sobre um quadrado de brownie e cubra com outro quadrado para formar um sanduíche. Repita o processo para os demais brownies."
+            },
+            new()
+            {
+                Id = 22,
+                ReceitaId = 3,
+                Texto = "Sirva os sanduíches de brownie imediatamente ou leve à geladeira por alguns minutos para firmar a ganache antes de servir."
+            },
+            // RECEITA 4 -----------------------------------------------------------------------------------
+            new(){
+                Id = 23,
+                ReceitaId = 4,
+                Texto = "Coloque na panela a manteiga e a farinha. Deixe derreter."
+            },
+            new(){
+                Id = 24,
+                ReceitaId = 4,
+                Texto = "Junte o leite e tempere com sal. Cozinhe até engrossar."
+            },
+            new(){
+                Id = 25,
+                ReceitaId = 4,
+                Texto = "Em uma panela, coloque a água e o sal. Deixe ferver. Coloque o macarrão e cozinhe até ficar al dente. Escorra. Misture no molho."
+            },
+            new(){
+                Id = 26,
+                ReceitaId = 4,
+                Texto = "Coloque em um refratário e, por cima, espalhe o queijo."
+            },
+            new(){
+                Id = 27,
+                ReceitaId = 4,
+                Texto = "Em uma frigideira, coloque o alho e o bacon e deixe dourar. Espalhe por cima do queijo."
+            },
+            new(){
+                Id = 28,
+                ReceitaId = 4,
+                Texto = "Leve para derreter no forno."
+            },
         };
         builder.Entity<Preparo>().HasData(preparos);
         #endregion
@@ -452,64 +614,152 @@ public class AppDbSeed
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 9,
-                Quantidade = "1 colher de chá (sal)"
+                Quantidade = "1 colher"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 16,
-                Quantidade = "1 colher de chá (pimenta)"
+                Quantidade = "1 colher de chá"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 17,
-                Quantidade = "2 dentes (alho)"
+                Quantidade = "2 dentes"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 18,
-                Quantidade = "1/2 unidade (limão)"
+                Quantidade = "1/2 unidade"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 19,
-                Quantidade = "2 unidades (ovos)"
+                Quantidade = "2 unidades"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 20,
-                Quantidade = "1 xícara (farinha de trigo)"
+                Quantidade = "1 xícara"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 21,
-                Quantidade = "1 xícara (farinha de rosca)"
+                Quantidade = "1 xícara"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 22,
-                Quantidade = "300 g (molho de tomate)"
+                Quantidade = "300 g"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 23,
-                Quantidade = "200 g (queijo mussarela)"
+                Quantidade = "200 g"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 24,
-                Quantidade = "50 g (queijo parmesão ralado)"
+                Quantidade = "50 g"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
-                IngredienteId = 26,
-                Quantidade = "1 colher de chá (orégano)"
+                IngredienteId = 10,
+                Quantidade = "1 colher de chá"
             },
             new ReceitaIngrediente(){
                 ReceitaId = 2,
                 IngredienteId = 25,
-                Quantidade = "300 ml (óleo para fritar)"
+                Quantidade = "300 ml"
             },
             //RECEITA ID 3 ---------------------------------------------------------
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 27,
+                Quantidade = "240g"
+            },
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 28,
+                Quantidade = "60g"
+            },
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 29,
+                Quantidade = "1 colher"
+            },
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 30,
+                Quantidade = "5 colheres"
+            },
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 31,
+                Quantidade = "1 colher"
+            },
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 32,
+                Quantidade = "1 colher de chá"
+            },
+            new ReceitaIngrediente() {
+                ReceitaId = 3,
+                IngredienteId = 33,
+                Quantidade = "1 lata"
+            },
+            new ReceitaIngrediente()
+            {
+                ReceitaId = 3,
+                IngredienteId = 9,
+                Quantidade = "1 pitada"
+            },
+            // RECEITA 4 ---------------------------------------------------------------------------------
+            new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 34,
+                Quantidade = "1 Pacote"
+            },
+            new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 35,
+                Quantidade = "2,5 Litros"
+            },
+            new ReceitaIngrediente()
+            {
+                ReceitaId = 4,
+                IngredienteId = 9,
+                Quantidade = "1 colher de chá +1"
+            },
+            new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 28,
+                Quantidade = "2 colheres de sopa"
+            },
+             new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 20,
+                Quantidade = "2 colheres de sopa"
+            },
+             new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 36,
+                Quantidade = "1 xícara e 1/2"
+            },
+             new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 37,
+                Quantidade = "1 xícara"
+            },
+             new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 17,
+                Quantidade = "2 dentes"
+            },
+             new ReceitaIngrediente(){
+                ReceitaId = 4,
+                IngredienteId = 23,
+                Quantidade = "2 xícaras de chá"
+            },
         };
         builder.Entity<ReceitaIngrediente>().HasData(receitaIngredientes);
         #endregion

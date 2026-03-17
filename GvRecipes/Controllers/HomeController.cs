@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GvRecipes.Models;
 using GvRecipes.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace GvRecipes.Controllers;
 
@@ -24,6 +25,19 @@ public class HomeController : Controller
         var receitas = _db.Receitas.ToList();
         ViewData["Categorias"] = _db.Categorias.ToList();
         return View(receitas);
+    }
+
+    public IActionResult Receita(int id)
+    {
+        var receita = _db.Receitas
+            .Where (r => r.Id == id)
+            .Include(r => r.Categoria)
+            .Include(r => r.Preparos)
+            .Include(r => r.Ingredientes)
+            .ThenInclude(ri => ri.Ingrediente)
+            .Include(r => r.Usuario)
+            .SingleOrDefault();
+        return View(receita);
     }
 
     public IActionResult Privacy()

@@ -35,6 +35,7 @@
 
     @foreach (Receita receita in Model)
     {
+        <a asp-action="Receita" asp-route-id="@receita.Id" style="text-decoration: none;">
         <!-- Card 1 -->
             <div class="recipe-card">
                 <div class="card-img"
@@ -53,5 +54,6 @@
                     </div>
                 </div>
             </div>
+        </a>
     }
 </div>
