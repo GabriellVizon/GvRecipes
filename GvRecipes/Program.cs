@@ -1,5 +1,6 @@
 using GvRecipes.Data;
 using GvRecipes.Models;
+using GvRecipes.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -27,6 +28,7 @@ builder.Services.AddIdentity<Usuario, IdentityRole>(
 .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IUserService, UserService>();
 
 var app = builder.Build();
 
