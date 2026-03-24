@@ -1,8 +1,10 @@
 using System.Security.Claims;
+using GvRecipes.Data;
 using GvRecipes.Helpers;
 using GvRecipes.Models;
 using GvRecipes.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace GvRecipes.Services;
 
@@ -11,17 +13,46 @@ public class UserService : IUserService
     private SignInManager<Usuario> _signInManager;
     private UserManager<Usuario> _userManager;
     private readonly ILogger<UserService> _logger;
+    private readonly AppDbContext _context;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public UserService(
+        AppDbContext context,
+        IHttpContextAccessor httpContextAccessor,
         SignInManager<Usuario> signInManager,
         UserManager<Usuario> userManager,
         ILogger<UserService> logger
     )
     {
+        _context = context;
+        _httpContextAccessor = httpContextAccessor;
         _signInManager = signInManager;
         _userManager = userManager;
         _logger = logger;
 
+    }
+    public async Task<UsuarioVM> GetUsuarioVM()
+    {
+        var userId = _httpContextAccessor.HttpContext.User
+            .FindFirstValue(ClaimTypes.NameIdentifier);
+        if(userId == null)
+            return null;
+        var userAccount = await _userManager.FindByIdAsync(userId);
+        var usuario = await _context.Usuarios.SingleOrDefaultAsync(u => u.Id == userId);
+        var perfis = string.Join(", ", await _userManager.GetRolesAsync(userAccount));
+        var isAdmin = await _userManager.IsInRoleAsync(userAccount, "Administrador");
+        UsuarioVM usuarioVM = new()
+        {
+            UsuarioId = userId,
+            Nome = usuario.Nome,
+            DataNascimento = usuario.DataNascimento,
+            Foto = usuario.Foto,
+            Email = userAccount.Email,
+            UserName = userAccount.UserName,
+            Perfil = perfis,
+            IsAdmin = isAdmin
+        };
+        return usuarioVM;
     }
     public async Task<SignInResult> Login(LoginVM login)
     {
@@ -47,5 +78,10 @@ public class UserService : IUserService
     {
         _logger.LogInformation($"Usuário '{ClaimTypes.Email}' saiu do sistema.");
         await _signInManager.SignOutAsync();
+    }
+
+    public Task<UsuarioVM> GetUsuarioLogado()
+    {
+        throw new NotImplementedException();
     }
 }

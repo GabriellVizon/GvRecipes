@@ -1,5 +1,5 @@
 @{
-    ViewData["MainClass"] = ViewData["MainClass"] ?? "container";
+   ViewData["MainClass"] = ViewData["mainClass"] ?? "container";
 }
 
 <!DOCTYPE html>
@@ -24,22 +24,8 @@
             <div class="logo-text">GvRecipes</div>
         </a>
 
-        <div class="profile-section">
-            <div class="profile-preview">
-                <!-- Imagem do usuário logada: usaremos uma foto ilustrativa (logado) -->
-                <img class="avatar-img" src="~/img/usuarios/no-photo.png" alt="Avatar da Ana">
-                <div class="user-info">
-                    <div class="user-name">Usuario</div>
-                    <div class="user-role"><i class="fas fa-chef-hat"></i>Usuário</div>
-                </div>
-            </div>
-            <!-- Menu suspenso -->
-            <div class="dropdown-menu">
-                <div class="dropdown-item"><i class="fas fa-user"></i> Meu perfil</div>
-                <div class="dropdown-item"><i class="fas fa-sliders-h"></i> Configurações</div>
-                <div class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Sair</div>
-            </div>
-        </div>
+        <partial name="_LoginPartial.cshtml" />
+
     </nav>
 
     <main class="@ViewData["MainClass"]">

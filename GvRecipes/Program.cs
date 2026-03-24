@@ -13,7 +13,6 @@ string conexao = builder.Configuration.GetConnectionString("Conexao");
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(conexao)
 );
-
 // Configuração do serviço do Identity
 builder.Services.AddIdentity<Usuario, IdentityRole>(
     Options =>
